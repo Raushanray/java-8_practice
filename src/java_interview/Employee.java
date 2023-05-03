@@ -1,17 +1,12 @@
 package java_interview;
 
-public class Employee implements Comparable<Employee>{
+public class Employee{
 	
 	String eId;
 	String name;
 	String dept;
 	int age;
 	
-	@Override
-	public int compareTo(Employee o) {
-		// TODO Auto-generated method stub
-		return this.age -o.age;
-	}
 	
 	
 	public Employee(String eId, String name, String dept, int age) {

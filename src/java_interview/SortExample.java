@@ -2,7 +2,6 @@ package java_interview;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class SortExample {
 	public static void main(String[] args) {
@@ -16,18 +15,25 @@ public class SortExample {
 //		System.out.println(marks);
 		
 		//now useing comparable Interface for sorting the data of employee class...
-		List<Employee> empList = new ArrayList<Employee>();
+		ArrayList<Employee> empList = new ArrayList<Employee>();
+		
 		empList.add(new Employee("108", "Pardeep", "h.r", 36));
 		empList.add(new Employee("102", "Santosh", "Manager", 35));
 		empList.add(new Employee("106", "Pardeep", "Asst Manager", 25));
 		empList.add(new Employee("104", "Ashok", "Store manager", 39));
 		empList.add(new Employee("109", "Santosh", "Generak manager", 29));
 		
+		ArrayList<Employee> empList1 = new ArrayList<Employee>(empList);
+		
 		System.out.println(empList);
 		//output in same order...
-		Collections.sort(empList);
+		Collections.sort(empList , new AgeComparetor());
 		System.out.println("+++++++++Sort by age of employee++++++++++");
 		System.out.println(empList);
+		
+		Collections.sort(empList1 , new NameComparetor());
+		System.out.println("+++++++++Sort by name of employee++++++++++");
+		System.out.println(empList1);
 
 	}
 
