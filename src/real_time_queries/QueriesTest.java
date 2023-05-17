@@ -237,7 +237,20 @@ public class QueriesTest {
 
 		System.out.println("----------------------------------------");	
 		
+		//13th Queries
+		//What is the average salary and total salary of the whole organization?
+		/*
+		 * For this query, we use Collectors.summarizingDouble() on Employee::getSalary
+		 * which will return statistics of the employee salary like max, min, average
+		 * and total.
+		 */
 		
+		DoubleSummaryStatistics employeeSalaryStatistics = employeeList.stream()
+		            .collect(Collectors.summarizingDouble(Employee::getSalary));
+		System.out.println("Average Salary :"+ employeeSalaryStatistics.getAverage());
+		System.out.println("Total Salary :" + employeeSalaryStatistics.getSum());
+		
+		System.out.println("----------------------------------------");
 	
 	}
 
