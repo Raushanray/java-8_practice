@@ -21,7 +21,7 @@ public class QueriesTest {
 		employeeList.add(new Employee(444, "Hanuman", 23, "male", "Tec-Manager", 2016, 100000));
 		employeeList.add(new Employee(555, "Sita", 20, "female", "Deployment", 2015, 25000));
 		employeeList.add(new Employee(666, "Moni", 30, "female", "Product Development", 2018, 200000));
-		employeeList.add(new Employee(777, "pawan", 31, "maLe", "Product Development", 2019, 205000));
+		employeeList.add(new Employee(777, "pawan", 31, "male", "Product Development", 2019, 205000));
 		employeeList.add(new Employee(888, "Pardeep", 45, "male", "Product manager", 2014, 250000));
 		employeeList.add(new Employee(999, "keshav", 29, "male", "DB", 2019, 150000));
 		employeeList.add(new Employee(123, "Kunal", 22, "male", "Product manager", 2020, 100000));
@@ -201,6 +201,24 @@ public class QueriesTest {
 		System.out.println("There in the manager team :" + countMaleFemaleEmployeesInManager);
 
 		System.out.println("----------------------------------------");
+
+		// 11th Queries
+		// What is the average salary of male and female employees?
+		/*
+		 * This query is same as query 3.3 where you have found average age of male and
+		 * female employees. Here, we will be finding average salary of male and female
+		 * employees.
+		 */
+		Map<String, Double> avgSalaryOfMaleAndFemaleEmployees = employeeList.stream()
+				.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)));
+		System.out.println("the average salary of male and female employees : " + avgSalaryOfMaleAndFemaleEmployees);
+
+		System.out.println("-----------------------------------");
+		
+		
+		
+		
+	
 	}
 
 }
