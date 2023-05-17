@@ -93,6 +93,18 @@ public class QueriesTest {
 
 		System.out.println("---------------------------------------------------");
 
+		// 5th Queries
+		// Get the names of all employees who have joined after 2017?
+		/*
+		 * For such queries which require filtering of input elements, use
+		 * Stream.filter() method which filters input elements according to supplied
+		 * Predicate. */
+		 System.out.println("The Names of all employees who have joined after 2017");
+		employeeList.stream().filter(e -> e.getYearOfJoining() > 2017).map(Employee::getName)
+				.forEach(System.out::println);
+
+		System.out.println("------------------------------------");
+
 	}
 
 }
