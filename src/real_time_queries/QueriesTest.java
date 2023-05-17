@@ -58,6 +58,18 @@ public class QueriesTest {
 		employeeList.stream().map(Employee::getDepartment).distinct().forEach(System.out::println);
 
 		System.out.println("----------------------------------------");
+		// 3rd Queries
+		// What is the average age of male and female employees?
+		/*
+		 * Use same method as query 3.1 but pass
+		 * Collectors.averagingInt(Employee::getAge) as the second argument to
+		 * Collectors.groupingBy().
+		 */
+
+		Map<String, Double> avgAgeOfMaleAndFemaleEmployees = employeeList.stream()
+				.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingInt(Employee::getAge)));
+		System.out.println("the average age of male and female employees" + avgAgeOfMaleAndFemaleEmployees);
+		System.out.println("----------------------------------------");
 
 	}
 
