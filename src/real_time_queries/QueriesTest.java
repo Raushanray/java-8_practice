@@ -122,7 +122,25 @@ public class QueriesTest {
 		}
 
 		System.out.println("---------------------------------------");
-	
+
+		// 7th Queries
+		// What is the average salary of each department?
+		/*
+		 * Use the same method as in the above query 3.6, but here pass
+		 * Collectors.averagingDouble(Employee::getSalary) as second argument to
+		 * Collectors.groupingBy() method.
+		 */
+		System.out.println("The average salary of each department");
+		Map<String, Double> avgSalaryOfDepartments = employeeList.stream()
+				                          .collect(Collectors.groupingBy(Employee::getDepartment,Collectors.averagingDouble(Employee::getSalary)));
+		
+		Set<Entry<String, Double>> entrySet2 = avgSalaryOfDepartments.entrySet();
+		for (Entry<String, Double> entry : entrySet2) {
+			System.out.println(entry.getKey() + " : " + entry.getValue());
+		}
+
+		System.out.println("-------------------------------------");
+
 	}
 
 }
