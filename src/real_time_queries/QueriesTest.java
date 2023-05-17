@@ -274,6 +274,15 @@ public class QueriesTest {
 	}
     System.out.println("----------------------------------------");
     
+  //15th Queries
+  //Who is the oldest employee in the organization? What is his age and which department he belongs to?
+    
+    Optional<Employee> oldestEmployeeWrapper  = employeeList.stream().max(Comparator.comparingInt(Employee::getAge));
+    Employee oldestEmployee  = oldestEmployeeWrapper.get();
+    System.out.println("Name : " + oldestEmployee.getName());
+    System.out.println("Age : "+ oldestEmployee.getAge());
+    System.out.println("Department : " + oldestEmployee.getDepartment());
+    
 	
 	}
 
