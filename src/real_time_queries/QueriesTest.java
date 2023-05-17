@@ -71,6 +71,28 @@ public class QueriesTest {
 		System.out.println("the average age of male and female employees" + avgAgeOfMaleAndFemaleEmployees);
 		System.out.println("----------------------------------------");
 
+		// 4th Queries
+		// Get the details of highest paid employee in the organization?
+		/*
+		 * Use Collectors.maxBy() method which returns maximum element wrapped in an
+		 * Optional object based on supplied Comparator.
+		 */
+		Optional<Employee> highestPaidEmployeeWrapper = employeeList.stream()
+				.collect(Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)));
+		Employee highestPaidEmployee = highestPaidEmployeeWrapper.get();
+//				System.out.println("The highest paid employee in the organization and its details " + highestPaidEmployee); // use this for print all details in single line
+		System.out.println("The highest paid employee in the organization ");
+		System.out.println("===================details===========");
+		System.out.println("ID- " + highestPaidEmployee.getId());
+		System.out.println("Name- " + highestPaidEmployee.getName());
+		System.out.println("Age- " + highestPaidEmployee.getAge());
+		System.out.println("Gender- " + highestPaidEmployee.getGender());
+		System.out.println("Department- " + highestPaidEmployee.getDepartment());
+		System.out.println("Year of Joining- " + highestPaidEmployee.getYearOfJoining());
+		System.out.println("Salary- " + highestPaidEmployee.getSalary());
+
+		System.out.println("---------------------------------------------------");
+
 	}
 
 }
