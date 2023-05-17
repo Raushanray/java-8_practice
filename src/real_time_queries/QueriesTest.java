@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
 
 public class QueriesTest {
 	public static void main(String[] args) {
-		
+
 		List<Employee> employeeList = new ArrayList<Employee>();
-        
+
 		employeeList.add(new Employee(111, "Ram", 34, "male", "Hr", 2016, 200000));
 		employeeList.add(new Employee(222, "Shyam", 44, "male", "Developer", 2017, 20000));
 		employeeList.add(new Employee(333, "Tannu", 24, "female", "manager", 2020, 200000));
@@ -32,8 +32,8 @@ public class QueriesTest {
 		employeeList.add(new Employee(118, "Rina", 35, "female", "Hr", 2017, 140000));
 		employeeList.add(new Employee(105, "Ravi", 26, "male", "manager", 2019, 150000));
 
-		//1st Queries
-		//How many male and female employees are there in the organization?
+		// 1st Queries
+		// How many male and female employees are there in the organization?
 		/*
 		 * For queries such as above where you need to group the input elements, use the
 		 * Collectors.groupingBy() method. In this query, we use Collectors.groupingBy()
@@ -41,12 +41,24 @@ public class QueriesTest {
 		 * argument which groups the input elements based on gender and
 		 * Collectors.counting() as second argument which counts the number of entries
 		 * in each group.
-		 */ 
-		Map<String, Long> noOfMaleAndFemaleEmployees = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
-		System.out.println("In this organization Total no of male and female employees = " + noOfMaleAndFemaleEmployees);
+		 */
+		Map<String, Long> noOfMaleAndFemaleEmployees = employeeList.stream()
+				.collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+		System.out
+				.println("In this organization Total no of male and female employees = " + noOfMaleAndFemaleEmployees);
+		System.out.println("----------------------------------------");
+		// 2nd Queries
+		// Print the name of all departments in the organization?
+		/*
+		 * Use distinct() method after calling map(Employee::getDepartment) on the
+		 * stream. It will return unique departments.
+		 */
+
+		System.out.println("All Department list.........");
+		employeeList.stream().map(Employee::getDepartment).distinct().forEach(System.out::println);
+
 		System.out.println("----------------------------------------");
 
-		
 	}
 
 }
