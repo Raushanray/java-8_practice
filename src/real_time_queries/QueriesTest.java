@@ -142,8 +142,7 @@ public class QueriesTest {
 		System.out.println("-------------------------------------");
 
 		// 8th Queries
-		// Get the details of youngest male employee in the Product Development
-		// department?
+		// Get the details of youngest male employee in the Product Development department?
 		/*
 		 * For this query, use Stream.filter() method to filter male employees in
 		 * product development department and to find youngest among them, use
@@ -164,7 +163,30 @@ public class QueriesTest {
 		System.out.println("Department- " + youngestMaleEmployeeInProductDevelopment.getDepartment());
 		System.out.println("Year of Joining- " + youngestMaleEmployeeInProductDevelopment.getYearOfJoining());
 		System.out.println("Salary- " + youngestMaleEmployeeInProductDevelopment.getSalary());
+		
+		System.out.println("------------------------------------------------");
 
+		
+		//9th Queries
+//		 Who has the most working experience in the organization?
+		/*
+		 * For this query, sort employeeList by yearOfJoining in natural order and first
+		 * employee will have most working experience in the organization. To solve this
+		 * query, we will be using sorted() and findFirst() methods of Stream.
+		 */
+		
+		Optional<Employee> seniorMostEmployeeWrapper = employeeList.stream().sorted(Comparator.comparingInt(Employee::getYearOfJoining)).findFirst();
+		Employee seniorMostEmployee  = seniorMostEmployeeWrapper.get();
+		System.out.println("Senior Most Employee Details :");
+		System.out.println("ID- " + seniorMostEmployee .getId());
+		System.out.println("Name- " + seniorMostEmployee .getName());
+		System.out.println("Age- " + seniorMostEmployee .getAge());
+		System.out.println("Gender- " + seniorMostEmployee .getGender());
+		System.out.println("Department- " + seniorMostEmployee .getDepartment());
+		System.out.println("Year of Joining- " + seniorMostEmployee .getYearOfJoining());
+		System.out.println("Salary- " + seniorMostEmployee .getSalary());
+		
+		System.out.println("------------------------------------------------");
 	}
 
 }
