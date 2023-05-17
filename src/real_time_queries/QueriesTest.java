@@ -251,6 +251,29 @@ public class QueriesTest {
 		System.out.println("Total Salary :" + employeeSalaryStatistics.getSum());
 		
 		System.out.println("----------------------------------------");
+		
+		//14th Queries
+		// Separate the employees who are younger or equal to 35 years from those employees who are older than 35 years.
+		/* For this query, we will be using Collectors.partitioningBy() method which separates input elements based on supplied Predicate. */
+	
+    Map<Boolean, List<Employee>> partitionEmployeesByAge = employeeList.stream().collect(Collectors.partitioningBy(e -> e.getAge()>35));
+    Set<Entry<Boolean, List<Employee>>> entrySet4 = partitionEmployeesByAge.entrySet();
+    for (Entry<Boolean, List<Employee>> entry : entrySet4) {
+  	  System.out.println("----------------------------------------");
+  	  if (entry.getKey()) {
+			System.out.println("Employees older than 25 years :");
+		}else {
+			System.out.println("Employees younger than or equal to 25 years :");
+		}
+  	  System.out.println("----------------------------------------");
+  	  List<Employee> value = entry.getValue();
+  	  for (Employee e : value) {
+			System.out.println(e.getName());
+		}
+		
+	}
+    System.out.println("----------------------------------------");
+    
 	
 	}
 
