@@ -187,6 +187,20 @@ public class QueriesTest {
 		System.out.println("Salary- " + seniorMostEmployee .getSalary());
 		
 		System.out.println("------------------------------------------------");
+
+		// 10th Queries
+		// How many male and female employees are there in the manager team?
+		/*
+		 * This query is same as query 3.1, but here use filter() method to filter sales
+		 * and marketing employees.
+		 */
+		Map<String, Long> countMaleFemaleEmployeesInManager = employeeList.stream()
+				.filter(e -> e.getDepartment() == "manager")
+				.collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+
+		System.out.println("There in the manager team :" + countMaleFemaleEmployeesInManager);
+
+		System.out.println("----------------------------------------");
 	}
 
 }
