@@ -21,7 +21,7 @@ public class QueriesTest {
 		employeeList.add(new Employee(444, "Hanuman", 23, "male", "Tec-Manager", 2016, 100000));
 		employeeList.add(new Employee(555, "Sita", 20, "female", "Deployment", 2015, 25000));
 		employeeList.add(new Employee(666, "Moni", 30, "female", "Product Development", 2018, 200000));
-		employeeList.add(new Employee(777, "pawan", 31, "male", "Product Development", 2019, 205000));
+		employeeList.add(new Employee(777, "pawan", 31, "maLe", "Product Development", 2019, 205000));
 		employeeList.add(new Employee(888, "Pardeep", 45, "male", "Product manager", 2014, 250000));
 		employeeList.add(new Employee(999, "keshav", 29, "male", "DB", 2019, 150000));
 		employeeList.add(new Employee(123, "Kunal", 22, "male", "Product manager", 2020, 100000));
@@ -140,6 +140,30 @@ public class QueriesTest {
 		}
 
 		System.out.println("-------------------------------------");
+
+		// 8th Queries
+		// Get the details of youngest male employee in the Product Development
+		// department?
+		/*
+		 * For this query, use Stream.filter() method to filter male employees in
+		 * product development department and to find youngest among them, use
+		 * Stream.min() method.
+		 */
+		
+		Optional<Employee> youngestMaleEmployeeInProductDevelopmentWrapper = employeeList.stream()
+		            .filter(e -> e.getGender().equalsIgnoreCase("Male") && e.getDepartment().equalsIgnoreCase("Product Development"))
+		            .min(Comparator.comparing(Employee::getAge));
+		Employee youngestMaleEmployeeInProductDevelopment = youngestMaleEmployeeInProductDevelopmentWrapper.get();
+		
+		System.out.println("The details of youngest male employee in the hr department :" );
+		
+		System.out.println("ID- " + youngestMaleEmployeeInProductDevelopment.getId());
+		System.out.println("Name- " + youngestMaleEmployeeInProductDevelopment.getName());
+		System.out.println("Age- " + youngestMaleEmployeeInProductDevelopment.getAge());
+		System.out.println("Gender- " + youngestMaleEmployeeInProductDevelopment.getGender());
+		System.out.println("Department- " + youngestMaleEmployeeInProductDevelopment.getDepartment());
+		System.out.println("Year of Joining- " + youngestMaleEmployeeInProductDevelopment.getYearOfJoining());
+		System.out.println("Salary- " + youngestMaleEmployeeInProductDevelopment.getSalary());
 
 	}
 
