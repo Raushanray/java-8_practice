@@ -214,8 +214,28 @@ public class QueriesTest {
 		System.out.println("the average salary of male and female employees : " + avgSalaryOfMaleAndFemaleEmployees);
 
 		System.out.println("-----------------------------------");
-		
-		
+
+		// 12th Queries
+		// List down the names of all employees in each department?
+		/*
+		 * For this query, we will be using Collectors.groupingBy() method by passing
+		 * Employee::getDepartment as an argument.
+		 */
+
+		Map<String, List<Employee>> employeeListByDepartment = employeeList.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment));
+		Set<Entry<String, List<Employee>>> entrySet3 = employeeListByDepartment.entrySet();
+		for (Entry<String, List<Employee>> entry : entrySet3) {
+			System.out.println("-----------------------------------");
+			System.out.println("Employee in : " + entry.getKey());
+			System.out.println("-----------------------------------");
+			List<Employee> value = entry.getValue();
+			for (Employee e : value) {
+				System.out.println(e.getName());
+			}
+		}
+
+		System.out.println("----------------------------------------");	
 		
 		
 	
