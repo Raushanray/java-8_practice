@@ -105,6 +105,24 @@ public class QueriesTest {
 
 		System.out.println("------------------------------------");
 
+		// 6th Queries
+		// Count the number of employees in each department?
+		/*
+		 * This query is same as query 3.1 but here we are grouping the elements by
+		 * department.
+		 */
+
+		System.out.println("the number of employees in each department ");
+
+		Map<String, Long> employeeCountByDepartment = employeeList.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
+		Set<Entry<String, Long>> entrySet = employeeCountByDepartment.entrySet();
+		for (Entry<String, Long> entry : entrySet) {
+			System.out.println(entry.getKey() + " = " + entry.getValue());
+		}
+
+		System.out.println("---------------------------------------");
+	
 	}
 
 }
