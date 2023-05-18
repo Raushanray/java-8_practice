@@ -17,17 +17,28 @@ public class Main {
 		
 		
 		// create new thread using anonymous class
-		Runnable aT1 = new Runnable() {
-			
-			@Override
-			public void run() {
+//		Runnable aT1 = new Runnable() {
+//			
+//			@Override
+//			public void run() {
+//				
+//				System.out.println("Thread is running in anonmous calss ..........");
+//				
+//			}
+//		};
+//		Thread t3 = new Thread(aT1);
+//		t3.start();
+		
+		//create new thread using lambda expression.
+		
+				Runnable r=()->{
+					
+					System.out.println("Thread is running using lambda expressions...........");
+					
+				};
 				
-				System.out.println("Thread is running in anonmous calss ..........");
-				
-			}
-		};
-		Thread t3 = new Thread(aT1);
-		t3.start();
+				Thread t4 = new Thread(r);
+				t4.start();
 		
 	}
 
