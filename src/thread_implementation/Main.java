@@ -12,9 +12,22 @@ public class Main {
 //		thread.start();
 		
 		//Implementation of Tread using Tread class
-		MyThread2 t2 = new MyThread2();
-		t2.start();
+//		MyThread2 t2 = new MyThread2();
+//		t2.start();
 		
+		
+		// create new thread using anonymous class
+		Runnable aT1 = new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				System.out.println("Thread is running in anonmous calss ..........");
+				
+			}
+		};
+		Thread t3 = new Thread(aT1);
+		t3.start();
 		
 	}
 
