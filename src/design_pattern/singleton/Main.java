@@ -19,7 +19,8 @@ public class Main {
 		/*
 		 * Way for  break the singleton pattern
 		 * 1. Reflection API to break the singleton pattern.
-		 * 
+		 * solution:- a)- if object is there == throws the exception from inside the constructor
+		 * b) - use enum 
 		 * 
 		 */
 		
