@@ -30,6 +30,9 @@ public class Main {
 		 * soluion:- implementing readResolve method
 		 * 
 		 * 3. cloinng
+		 * solution:- just remove in  samosa class clone override method.
+		 * super.clone(); 
+		 * and call Samosa. 
 		 * 
 		 */
 		

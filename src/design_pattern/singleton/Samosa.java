@@ -43,7 +43,8 @@ public class Samosa  implements Serializable,Cloneable{
 	}
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
+		return samosa;
+
 	}
 	
 	
