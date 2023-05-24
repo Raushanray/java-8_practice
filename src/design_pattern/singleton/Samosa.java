@@ -38,6 +38,10 @@ public class Samosa  implements Serializable{
 		
 	}
 	
+	public Object readResolve(){
+		return samosa;
+	}
+	
 	
 }
 

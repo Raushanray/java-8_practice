@@ -27,6 +27,7 @@ public class Main {
 		 * b) - use enum 
 		 * 
 		 * 2. Deserialiazation :-
+		 * soluion:- implementing readResolve method
 		 * 
 		 */
 		
