@@ -26,6 +26,7 @@ public class Main {
 		
 		Samosa s1 = Samosa.INSTANCE;
 		System.out.println(s1.hashCode());
+		s1.test();
 		
 		Constructor<Samosa> constructor = Samosa.class.getDeclaredConstructor();
 		constructor.setAccessible(true);

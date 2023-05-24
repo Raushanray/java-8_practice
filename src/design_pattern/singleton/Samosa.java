@@ -2,7 +2,7 @@ package design_pattern.singleton;
 
 public enum Samosa {
 	
-	INSTANCE
+	INSTANCE;
 	
 //	private static Samosa samosa;
 	
@@ -36,6 +36,11 @@ public enum Samosa {
 //		return samosa;
 //		
 //	}
+	
+	// you can also add some method for testing
+	public void test() {
+		System.out.println("testing......");
+	}
 	
 }
 
