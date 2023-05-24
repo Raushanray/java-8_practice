@@ -1,18 +1,19 @@
 package design_pattern.singleton;
 
-public enum Samosa {
+import java.io.Serializable;
+
+public class Samosa  implements Serializable{
 	
-	INSTANCE;
+
 	
-//	private static Samosa samosa;
+	private static Samosa samosa;
 	
 	//constructor 
-//	private Samosa() {
+	private Samosa() {
 //		if(samosa != null) {
 //			throw new RuntimeException("you are trying to break the singleton design pattern..");
-//		}
-//		
-//	}
+//		}	
+	}
 	//Lazy way of creating singleton object
 //	public synchronized static Samosa getSamosa() { //this is method synchronization
 //		//create object of this class
@@ -24,23 +25,19 @@ public enum Samosa {
 //	} //this is not good ways..
 	
 	
-//	public  static Samosa getSamosa() { 
-//		//create object of this class
-//		if (samosa == null) {
-//			synchronized (Samosa.class) {
-//				if (samosa == null) {
-//					 samosa = new Samosa();
-//				}
-//			}
-//		}
-//		return samosa;
-//		
-//	}
-	
-	// you can also add some method for testing
-	public void test() {
-		System.out.println("testing......");
+	public  static Samosa getSamosa() { 
+		//create object of this class
+		if (samosa == null) {
+			synchronized (Samosa.class) {
+				if (samosa == null) {
+					 samosa = new Samosa();
+				}
+			}
+		}
+		return samosa;
+		
 	}
+	
 	
 }
 
