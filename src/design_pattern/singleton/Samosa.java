@@ -2,7 +2,7 @@ package design_pattern.singleton;
 
 import java.io.Serializable;
 
-public class Samosa  implements Serializable{
+public class Samosa  implements Serializable,Cloneable{
 	
 
 	
@@ -40,6 +40,10 @@ public class Samosa  implements Serializable{
 	
 	public Object readResolve(){
 		return samosa;
+	}
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 	
 	

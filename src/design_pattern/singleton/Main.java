@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.lang.reflect.Constructor;
 
 public class Main {
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception, CloneNotSupportedException{
 //		// Lazy way of creating singleton object
 //		Samosa samosa1 = Samosa.getSamosa();
 //		System.out.println(samosa1.hashCode());
@@ -29,6 +29,8 @@ public class Main {
 		 * 2. Deserialiazation :-
 		 * soluion:- implementing readResolve method
 		 * 
+		 * 3. cloinng
+		 * 
 		 */
 		
 //		Samosa s1 = Samosa.INSTANCE;
@@ -42,13 +44,16 @@ public class Main {
 		
 		Samosa samosa = Samosa.getSamosa();
 		System.out.println(samosa.hashCode());
-		ObjectOutputStream oos= new ObjectOutputStream(new FileOutputStream("xyz.ob"));
-		oos.writeObject(samosa);
+//		ObjectOutputStream oos= new ObjectOutputStream(new FileOutputStream("xyz.ob"));
+//		oos.writeObject(samosa);
+//		
+//		System.out.println("serialiazation is done..");
+//		
+//		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("xyz.ob"));
+//		Samosa s2 =(Samosa) ois.readObject();
+//		System.out.println(s2.hashCode());
 		
-		System.out.println("serialiazation is done..");
-		
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("xyz.ob"));
-		Samosa s2 =(Samosa) ois.readObject();
+		Samosa s2 = (Samosa)samosa.clone();
 		System.out.println(s2.hashCode());
 		
 	}
