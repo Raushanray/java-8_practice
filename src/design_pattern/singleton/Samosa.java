@@ -1,16 +1,18 @@
 package design_pattern.singleton;
 
-public class Samosa {
+public enum Samosa {
 	
-	private static Samosa samosa;
+	INSTANCE
+	
+//	private static Samosa samosa;
 	
 	//constructor 
-	private Samosa() {
-		if(samosa != null) {
-			throw new RuntimeException("you are trying to break the singleton design pattern..");
-		}
-		
-	}
+//	private Samosa() {
+//		if(samosa != null) {
+//			throw new RuntimeException("you are trying to break the singleton design pattern..");
+//		}
+//		
+//	}
 	//Lazy way of creating singleton object
 //	public synchronized static Samosa getSamosa() { //this is method synchronization
 //		//create object of this class
@@ -22,19 +24,18 @@ public class Samosa {
 //	} //this is not good ways..
 	
 	
-	public  static Samosa getSamosa() { 
-		//create object of this class
-		if (samosa == null) {
-			synchronized (Samosa.class) {
-				if (samosa == null) {
-					 samosa = new Samosa();
-				}
-			}
-		}
-		return samosa;
-		
-	}
-
+//	public  static Samosa getSamosa() { 
+//		//create object of this class
+//		if (samosa == null) {
+//			synchronized (Samosa.class) {
+//				if (samosa == null) {
+//					 samosa = new Samosa();
+//				}
+//			}
+//		}
+//		return samosa;
+//		
+//	}
 	
 }
 
