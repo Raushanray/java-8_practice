@@ -3,7 +3,7 @@ package spring_interview_problem;
 /*
  * Write a program to count number of words in a String?.
  * The simple solution to this program seems to be input.split("").length but this won't work if your String 
- * is not properly formatted and it contains leading and trsiling space, duplicate multiple space and tabs.
+ * is not properly formatted and it contains leading and trailing space, duplicate multiple space and tabs.
  * 
  * Luckily String split() function takes regular expression as argument and we can use it to count the number of words in a String.
  */
