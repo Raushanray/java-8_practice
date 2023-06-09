@@ -10,7 +10,15 @@ public class Main {
 		networkConnection.loadVeryImportantData();
 		System.out.println(networkConnection);
 		
+		//we want new object for network connection
 		
+				try {
+					NetworkConnection networkConnection2 = (NetworkConnection) networkConnection.clone();
+					System.out.println(networkConnection2);
+					
+				} catch (CloneNotSupportedException e) {
+					e.printStackTrace();
+				}
 		
 	}
 

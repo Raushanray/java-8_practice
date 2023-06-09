@@ -1,6 +1,6 @@
 package prototype_design_pattern;
 
-public class NetworkConnection {
+public class NetworkConnection implements Cloneable {
 	
 	private String ip;
 	private String importantData;
@@ -30,6 +30,10 @@ public class NetworkConnection {
 		//it will take 5 minutes
 	}
 	
-	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		
+		return super.clone();
+	}
 
 }
