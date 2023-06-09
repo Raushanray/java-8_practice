@@ -24,9 +24,9 @@ public class NetworkConnection implements Cloneable {
 		return "NetworkConnection [ip = " + ip + ", importantData = " + importantData + "]";
 	}
 	
-	public void loadVeryImportantData()  {
+	public void loadVeryImportantData() throws InterruptedException  {
 		this.importantData = " very very important data";
-		
+		Thread.sleep(5000);
 		//it will take 5 minutes
 	}
 	
