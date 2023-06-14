@@ -49,7 +49,16 @@ public class NetworkConnection implements Cloneable {
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		
-		return super.clone();
+		//logic for cloning
+		NetworkConnection networkConnection = new NetworkConnection();
+		networkConnection.setIp(this.getIp());
+		networkConnection.setImportantData(this.getImportantData());
+		
+		for (String d : this.getDomains()) {
+			networkConnection.getDomains().add(d);
+		}
+		
+		return networkConnection;
 	}
 	
 
